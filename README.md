@@ -2,21 +2,21 @@
 
 Flask backend with YOLOv8n object detection for indoor navigation.
 
-## 🚀 Deploy on Render (Free)
+## 🚀 Deploy on Railway (Recommended - 8GB RAM)
 
 ### One-Click Deploy:
-1. Fork this repo
-2. Go to https://render.com
-3. New Web Service → Connect this repo
-4. Configure:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app --bind 0.0.0.0:$PORT`
-   - **Instance Type**: Free
-5. Deploy!
+1. Go to https://railway.app
+2. Sign up with GitHub
+3. Click **"New Project"** → **"Deploy from GitHub repo"**
+4. Select **"Blind_Navigation_Backend"**
+5. Railway auto-detects settings (railway.json)
+6. Click **"Deploy"**
+7. Wait 5-10 minutes
+8. Click **"Generate Domain"** to get your URL
 
-### Environment Variables (Optional):
-- `PORT` - Auto-set by Render
-- `PYTHON_VERSION` - 3.10 (recommended)
+### Environment Variables:
+- `PORT` - Auto-set by Railway
+- No other variables needed!
 
 ## 📦 Model Auto-Download
 
@@ -77,7 +77,7 @@ Health check endpoint.
 
 ## 💰 Cost: ₹0
 
-Render free tier: 750 hours/month
+Railway free tier: 500 hours/month + 8GB RAM
 
 ---
 **Built for visually impaired navigation** 🦯
