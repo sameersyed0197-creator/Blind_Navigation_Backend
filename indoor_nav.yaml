@@ -1,0 +1,36 @@
+# Indoor Navigation Dataset Configuration
+# This config focuses on indoor objects relevant for blind navigation
+
+# Dataset paths
+path: ../datasets/indoor_nav  # Root directory
+train: images/train  # Train images (relative to 'path')
+val: images/val      # Validation images (relative to 'path')
+
+# Number of classes
+nc: 20
+
+# Class names (indoor-focused subset from COCO)
+names:
+  0: person
+  1: chair
+  2: couch
+  3: bed
+  4: dining table
+  5: door
+  6: tv
+  7: laptop
+  8: bottle
+  9: cup
+  10: book
+  11: backpack
+  12: handbag
+  13: keyboard
+  14: mouse
+  15: cell phone
+  16: clock
+  17: vase
+  18: stairs
+  19: bench
+
+# Training hyperparameters
+# These are optimized for indoor navigation
