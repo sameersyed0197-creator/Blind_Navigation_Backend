@@ -27,11 +27,13 @@ CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "OPTIONS
 print("Loading YOLOv8 Nano model...")
 try:
     model = YOLO('yolov8n.pt')
+    model.fuse()  # Optimize for inference
     print("✅ Model loaded successfully")
 except Exception as e:
     print(f"❌ Error loading model: {e}")
     print("Model will download automatically on first run...")
     model = YOLO('yolov8n.pt')
+    model.fuse()
 
 CLASS_NAMES = [
     'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat',
@@ -117,13 +119,13 @@ def detect():
         img_array = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
         
         h, w = img_array.shape[:2]
-        if max(h, w) > 416:
-            scale = 416 / max(h, w)
+        if max(h, w) > 320:
+            scale = 320 / max(h, w)
             new_w, new_h = int(w * scale), int(h * scale)
             img_array = cv2.resize(img_array, (new_w, new_h), interpolation=cv2.INTER_AREA)
             h, w = new_h, new_w
         
-        results = model(img_array, conf=0.25, iou=0.45, verbose=False, max_det=10, device='cpu', imgsz=416, half=False)
+        results = model(img_array, conf=0.25, iou=0.45, verbose=False, max_det=5, device='cpu', imgsz=320, half=False)
         
         detections = []
         boxes_data = []
