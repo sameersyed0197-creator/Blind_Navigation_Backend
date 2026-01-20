@@ -229,5 +229,5 @@ if __name__ == '__main__':
     print("✅ Model: YOLOv8n Fine-Tuned on COCO")
     print("="*60 + "\n")
     
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 7860))
     app.run(host='0.0.0.0', port=port, debug=False, threaded=True)
